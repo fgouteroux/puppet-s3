@@ -9,6 +9,9 @@
 #       access_key_id       => 'mysecret',
 #       secret_access_key   => 'anothersecret',
 #       region              => 'us-west-1', # Defaults to us-east-1
+#       endpoint            => 'https://my-custom-endpoint',
+#       ssl_verify_peer     => true,
+#       force_path_style    => false,
 #   }
 #
 #   Author: jeff malnick, malnick@gmail.com
@@ -30,6 +33,9 @@ Puppet::Type.type(:s3).provide(:s3) do
         :access_key_id      => resource[:access_key_id], 
         :secret_access_key  => resource[:secret_access_key],
         :region             => resource[:region] || 'us-east-1',
+        :endpoint           => resource[:endpoint], || 'dummy'
+        :ssl_verify_peer    => resource[:ssl_verify_peer], || true
+        :force_path_style   => resource[:force_path_style], || false
     )
 
     # Get the name of the bucket and path to the object:

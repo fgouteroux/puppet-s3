@@ -41,5 +41,17 @@ Puppet::Type.newtype(:s3) do
       desc "AWS region of S3"
   end
 
+  newparam(:endpoint) do
+      desc "AWS endpoint of S3"
+  end
+
+  newparam(:ssl_verify_peer, :boolean => true) do
+      desc "Verify ssl peer for s3 endpoint"
+  end
+
+  newparam(:force_path_style, :boolean => true) do
+      desc "Overwrite the aws s3 endpoint"
+  end
+
 end
 
